@@ -7,6 +7,11 @@ import { BillSplitter } from '@/components/BillSplitter';
 import { LiberaTag } from '@/components/LiberaTag';
 import { TravelSocial } from '@/components/TravelSocial';
 import { BookingTracker } from '@/components/BookingTracker';
+import { SmartTripOrganizer } from '@/components/SmartTripOrganizer';
+import { LocalRecommendations } from '@/components/LocalRecommendations';
+import { QueueEstimator } from '@/components/QueueEstimator';
+import { OfflineTicketStorage } from '@/components/OfflineTicketStorage';
+import { ProactiveNotifications } from '@/components/ProactiveNotifications';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Users, Receipt, Tag, Sparkles } from 'lucide-react';
@@ -95,6 +100,9 @@ const Index = () => {
               </motion.div>
             </div>
 
+            {/* Smart Trip Features */}
+            <SmartTripOrganizer />
+            
             {/* Recent Activity */}
             <BookingTracker />
           </div>
@@ -124,6 +132,24 @@ const Index = () => {
       
       case 'social':
         return <TravelSocial />;
+      
+      case 'smart':
+        return (
+          <div className="space-y-6">
+            <div className="text-center mb-6">
+              <h2 className="text-xl font-bold mb-2">Smart Travel Assistant</h2>
+              <p className="text-sm text-muted-foreground">
+                Your AI-powered travel co-pilot
+              </p>
+            </div>
+            <LocalRecommendations />
+            <QueueEstimator />
+            <ProactiveNotifications />
+          </div>
+        );
+      
+      case 'tickets':
+        return <OfflineTicketStorage />;
       
       case 'profile':
         return (

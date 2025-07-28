@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, Receipt, Tag, Users, User } from 'lucide-react';
+import { Home, Receipt, Tag, Users, User, Brain, Ticket } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface MobileNavigationProps {
@@ -8,13 +8,16 @@ interface MobileNavigationProps {
   onTabChange: (tab: string) => void;
 }
 
-const tabs = [
+const navItems = [
   { id: 'home', icon: Home, label: 'Home' },
   { id: 'bills', icon: Receipt, label: 'Bills' },
+  { id: 'smart', icon: Brain, label: 'Smart' },
+  { id: 'tickets', icon: Ticket, label: 'Tickets' },
   { id: 'tags', icon: Tag, label: 'Tags' },
   { id: 'social', icon: Users, label: 'Social' },
   { id: 'profile', icon: User, label: 'Profile' }
 ];
+
 
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   activeTab,
@@ -23,7 +26,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border z-50">
       <div className="flex items-center justify-around px-4 py-2 safe-bottom">
-        {tabs.map((tab) => {
+        {navItems.map((tab) => {
           const isActive = activeTab === tab.id;
           const Icon = tab.icon;
           
